@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Risk Prediction | AMR Sentinel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+🦠 AMR Sentinel
+</div>
+
+<div class="nav-links">
+
+<a href="about.html">About</a>
+<a href="risk.html">AI Risk</a>
+<a href="data.html">Data</a>
+<a href="map.html">India Map</a>
+<a href="history.html">History</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<button id="darkModeBtn">🌙 Dark Mode</button>
+
+</nav>
+
+<section class="risk-header">
+
+    <h1>🤖 AI Risk Prediction Center</h1>
+
+    <p>
+        Use intelligent analysis to estimate antimicrobial resistance risk,
+        understand severity levels, and receive healthcare recommendations.
+    </p>
+
+    <div class="risk-features">
+
+        <div>
+            <h3>📊 Smart Analysis</h3>
+            <p>Evaluate AMR cases and antibiotic usage patterns.</p>
+        </div>
+
+        <div>
+            <h3>⚠️ Risk Detection</h3>
+            <p>Identify low, medium, and high risk conditions.</p>
+        </div>
+
+        <div>
+            <h3>📄 Reports</h3>
+            <p>Generate downloadable risk assessment reports.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<h2 class="section-title">🤖 AI Risk Analysis</h2>
+<div class="risk-summary">
+
+    <div class="summary-card">
+        <h3>🦠 Active Cases</h3>
+        <h2>524</h2>
+        <p>Currently analysed</p>
+    </div>
+
+
+    <div class="summary-card">
+        <h3>⚠️ High Risk Areas</h3>
+        <h2>12</h2>
+        <p>Need monitoring</p>
+    </div>
+
+
+    <div class="summary-card">
+        <h3>🏥 Hospitals</h3>
+        <h2>152</h2>
+        <p>Reporting data</p>
+    </div>
+<div class="risk-level-dashboard">
+
+    <h2>📊 Current Risk Overview</h2>
+
+    <div class="level-cards">
+
+        <div class="level high">
+            <h3>🔴 High Risk</h3>
+            <p>Delhi</p>
+            <strong>120 Cases</strong>
+        </div>
+
+
+        <div class="level medium">
+            <h3>🟡 Medium Risk</h3>
+            <p>Punjab</p>
+            <strong>75 Cases</strong>
+        </div>
+
+
+        <div class="level low">
+            <h3>🟢 Low Risk</h3>
+            <p>Kerala</p>
+            <strong>30 Cases</strong>
+        </div>
+
+    </div>
+
+</div>
+</div>
+<div class="ai-panel">
+
+<div class="risk-card high">
+<h3>🔴 High Risk</h3>
+<p>Delhi</p>
+</div>
+
+<div class="ai-risk dashboard-panel">
+
+    <label>Number of AMR Cases:</label><br>
+    <input type="number" id="cases" placeholder="Enter cases"><br><br>
+
+    <label>Antibiotic Usage:</label><br>
+    <select id="usage">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+
+    <div class="risk-meter">
+        <div id="risk-fill"></div>
+    </div>
+
+    <p id="risk-score">Risk Score: 0%</p>
+<p id="severityLevel"><strong>Severity:</strong> Not analyzed</p>
+<p id="recommendation"><strong>Recommendation:</strong> Waiting for analysis...</p>
+    <p id="prediction">Waiting for analysis...</p>
+
+    <div id="riskBadge" class="risk-badge">
+        🟢 Safe
+    </div>
+
+<button class="analyze-btn" onclick="predictRisk()">
+        🤖 Analyze Risk
+</button>
+<br><br>
+
+<button id="downloadReportBtn">
+    📄 Download PDF Report
+</button>
+</div>
+
+<div class="history">
+
+    <h2>Risk Analysis History</h2>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Cases</th>
+            <th>Usage</th>
+            <th>Risk</th>
+        </tr>
+    </thead>
+
+    <tbody id="historyTable">
+
+    </tbody>
+
+</table>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

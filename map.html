@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India AMR Risk Map | AMR Sentinel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- ===========================
+        NAVBAR
+============================ -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🦠 AMR Sentinel
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="risk.html">AI Risk</a>
+        <a href="history.html">History</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <button id="darkModeBtn">
+        🌙 Dark Mode
+    </button>
+
+</nav>
+
+<!-- ===========================
+        HERO
+============================ -->
+
+<section class="hero">
+
+    <h1>🇮🇳 India AMR Risk Dashboard</h1>
+
+    <p>
+
+        Visualize antimicrobial resistance across India using
+        AI-powered monitoring, hospital reports, and real-time
+        surveillance data.
+
+    </p>
+
+</section>
+
+<!-- ===========================
+     LIVE SUMMARY
+============================ -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>28</h2>
+<p>States Covered</p>
+</div>
+
+<div class="stat">
+<h2>8</h2>
+<p>Union Territories</p>
+</div>
+
+<div class="stat">
+<h2>524</h2>
+<p>AMR Cases</p>
+</div>
+
+<div class="stat">
+<h2>98%</h2>
+<p>AI Accuracy</p>
+</div>
+
+</section>
+
+<!-- ===========================
+      INDIA MAP
+============================ -->
+
+<section class="features">
+
+<h2>India AMR Risk Map</h2>
+
+<div class="india-map">
+
+<div class="state high">Delhi 🔴</div>
+<div class="state high">Maharashtra 🔴</div>
+<div class="state medium">Punjab 🟡</div>
+<div class="state medium">Tamil Nadu 🟡</div>
+<div class="state low">Kerala 🟢</div>
+<div class="state low">Rajasthan 🟢</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      STATE DETAILS
+============================ -->
+
+<section class="dashboard">
+
+<h2>Selected State</h2>
+
+<div class="dashboard-cards">
+
+<div class="dash-card">
+<h3>State</h3>
+<h1 id="stateName">Delhi</h1>
+</div>
+
+<div class="dash-card">
+<h3>Risk Level</h3>
+<h1 id="stateRisk">High</h1>
+</div>
+
+<div class="dash-card">
+<h3>AMR Cases</h3>
+<h1 id="stateCases">45</h1>
+</div>
+
+<div class="dash-card">
+<h3>Recommendation</h3>
+<p id="stateAdvice">
+Increase surveillance and reduce unnecessary antibiotic usage.
+</p>
+</div>
+
+</div>
+
+</section>
+<!-- ===========================
+      AMR TREND CHART
+============================ -->
+
+<section class="dashboard">
+
+    <h2>📈 AMR Trend Analysis</h2>
+
+    <div class="chart-container">
+        <canvas id="indiaTrendChart"></canvas>
+    </div>
+
+</section>
+
+<!-- ===========================
+      STATE SEARCH
+============================ -->
+
+<section class="features">
+
+    <h2>🔍 Search State</h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="stateSearch"
+            placeholder="Search any Indian state...">
+    </div>
+
+</section>
+
+<!-- ===========================
+      HOSPITAL REPORTS
+============================ -->
+
+<section class="dashboard">
+
+    <h2>🏥 State Hospital Reports</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Hospital</th>
+                    <th>State</th>
+                    <th>Cases</th>
+                    <th>Risk</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>AIIMS Delhi</td>
+                    <td>Delhi</td>
+                    <td>45</td>
+                    <td>🔴 High</td>
+                </tr>
+
+                <tr>
+                    <td>PGIMER</td>
+                    <td>Punjab</td>
+                    <td>32</td>
+                    <td>🟡 Medium</td>
+                </tr>
+
+                <tr>
+                    <td>KGMU</td>
+                    <td>Uttar Pradesh</td>
+                    <td>21</td>
+                    <td>🟢 Low</td>
+                </tr>
+
+                <tr>
+                    <td>Apollo Hospital</td>
+                    <td>Tamil Nadu</td>
+                    <td>39</td>
+                    <td>🟡 Medium</td>
+                </tr>
+
+                <tr>
+                    <td>CMC Vellore</td>
+                    <td>Tamil Nadu</td>
+                    <td>27</td>
+                    <td>🟢 Low</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+      ALERT CENTER
+============================ -->
+
+<section class="features">
+
+<h2>🚨 Live AMR Alerts</h2>
+
+<div class="alert-box">
+<strong>Delhi:</strong> Carbapenem resistance increasing.
+</div>
+
+<div class="alert-box">
+<strong>Maharashtra:</strong> MRSA cases reported.
+</div>
+
+<div class="alert-box">
+<strong>Kerala:</strong> Risk level remains low.
+</div>
+
+<div class="alert-box">
+<strong>Punjab:</strong> Antibiotic monitoring recommended.
+</div>
+
+</section>
+<!-- ===========================
+      AI RISK PREDICTION
+============================ -->
+
+<section class="dashboard">
+
+    <h2>🤖 AI Risk Prediction Center</h2>
+
+    <div class="ai-panel">
+
+        <div class="ai-risk">
+
+            <label>Select State</label><br>
+            <select id="selectedState">
+                <option>Delhi</option>
+                <option>Maharashtra</option>
+                <option>Punjab</option>
+                <option>Tamil Nadu</option>
+                <option>Kerala</option>
+                <option>Rajasthan</option>
+            </select>
+
+            <br><br>
+
+            <label>Number of AMR Cases</label><br>
+            <input type="number" id="cases" placeholder="Enter cases">
+
+            <br><br>
+
+            <label>Antibiotic Usage</label><br>
+
+            <select id="usage">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+
+            <div class="risk-meter">
+                <div id="risk-fill"></div>
+            </div>
+
+            <h3 id="risk-score">Risk Score : 0%</h3>
+
+            <button onclick="predictRisk()">
+                Analyze State
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+      RISK LEGEND
+============================ -->
+
+<section class="features">
+
+<h2>🗺️ Risk Legend</h2>
+
+<div class="cards">
+
+<div class="risk-card high">
+<h3>🔴 High Risk</h3>
+<p>Immediate Action Required</p>
+</div>
+
+<div class="risk-card medium">
+<h3>🟡 Medium Risk</h3>
+<p>Continuous Monitoring</p>
+</div>
+
+<div class="risk-card low">
+<h3>🟢 Low Risk</h3>
+<p>Situation Stable</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      NATIONAL SUMMARY
+============================ -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>1250+</h2>
+<p>Hospitals Connected</p>
+</div>
+
+<div class="stat">
+<h2>36</h2>
+<p>Regions Monitored</p>
+</div>
+
+<div class="stat">
+<h2>2.5M</h2>
+<p>Records Analysed</p>
+</div>
+
+<div class="stat">
+<h2>24×7</h2>
+<p>AI Monitoring</p>
+</div>
+
+</section>
+
+<!-- ===========================
+      RECENT UPDATES
+============================ -->
+
+<section class="history">
+
+<h2>📅 Recent Updates</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>State</th>
+<th>Update</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>11 Jul 2026</td>
+<td>Delhi</td>
+<td>High AMR Alert Issued</td>
+</tr>
+
+<tr>
+<td>10 Jul 2026</td>
+<td>Maharashtra</td>
+<td>Resistance Trend Increased</td>
+</tr>
+
+<tr>
+<td>09 Jul 2026</td>
+<td>Tamil Nadu</td>
+<td>Monitoring Successful</td>
+</tr>
+
+<tr>
+<td>08 Jul 2026</td>
+<td>Kerala</td>
+<td>Risk Reduced</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+<!-- ===========================
+      LIVE SYSTEM STATUS
+============================ -->
+
+<section class="dashboard">
+
+    <h2>🖥️ System Status</h2>
+
+    <div class="dashboard-top">
+
+        <div class="status-box">
+            🟢 AMR Sentinel Status: Online
+        </div>
+
+        <div class="last-update">
+            <span id="liveClock">Loading...</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+      QUICK ACTIONS
+============================ -->
+
+<section class="features">
+
+<h2>⚡ Quick Actions</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📄 Download Report</h3>
+<p>Generate the latest AMR surveillance report.</p>
+<button>Download</button>
+</div>
+
+<div class="card">
+<h3>📤 Export Data</h3>
+<p>Export state-wise AMR statistics.</p>
+<button>Export</button>
+</div>
+
+<div class="card">
+<h3>🔄 Refresh Data</h3>
+<p>Load the newest surveillance records.</p>
+<button>Refresh</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      ABOUT MAP
+============================ -->
+
+<section class="about">
+
+<h2>About the India AMR Map</h2>
+
+<p>
+
+The India AMR Risk Map provides a visual overview of antimicrobial resistance
+reported across Indian states and union territories. The dashboard combines
+hospital surveillance, AI-based risk prediction, and trend analysis to help
+healthcare professionals identify high-risk regions quickly.
+
+</p>
+
+</section>
+
+<!-- ===========================
+      FOOTER
+============================ -->
+
+<footer>
+
+<p>
+
+© 2026 AMR Sentinel |
+Monitoring Today, Protecting Tomorrow
+
+</p>
+
+</footer>
+
+<script>
+
+function updateClock(){
+
+const now=new Date();
+
+document.getElementById("liveClock").innerHTML=
+now.toLocaleString();
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
